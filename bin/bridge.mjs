@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { spawnSync } from 'node:child_process'
-import { join, homedir, tmpdir } from 'node:path'
+import { join } from 'node:path'
+import { homedir, tmpdir } from 'node:os'
 
 const PLUGIN_NAME = 'dsh-schedule-bridge'
 

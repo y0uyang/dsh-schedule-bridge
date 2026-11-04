@@ -2,6 +2,7 @@
 import { spawnSync } from 'node:child_process'
 import { join } from 'node:path'
 import { homedir, tmpdir } from 'node:os'
+import { fileURLToPath } from 'node:url'
 
 const PLUGIN_NAME = 'dsh-schedule-bridge'
 
@@ -17,15 +18,18 @@ Examples:
 
 function runDsh(args) {
   // 尝试多种 dsh 命令路径
-  const candidates = ['dsh', '/Applications/DeepSeek Harness.app/Contents/Resources/app.asar/dsh/cli.mjs']
+  const candidates = [
+    'dsh',
+    '/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh',
+  ]
   let cmd = null
   for (const c of candidates) {
-    const r = spawnSync(c, ['--version'], { encoding: 'utf8', timeout: 3000 })
+    const r = spawnSync(c, ['--version'], { encoding: 'utf8', timeout: 5000 })
     if (r.status === 0) { cmd = c; break }
   }
   if (!cmd) {
     // 尝试用 npx
-    const r = spawnSync('npx', ['dsh', '--version'], { encoding: 'utf8', timeout: 15000 })
+    const r = spawnSync('npx', ['dsh', '--version'], { encoding: 'utf8', timeout: 30000 })
     if (r.status === 0) cmd = 'npx'
   }
   if (!cmd) {

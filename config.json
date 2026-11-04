@@ -1,0 +1,13 @@
+{
+  "host": "127.0.0.1",
+  "port": 51677,
+  "botId": "",
+  "targetId": "",
+  "schedulePath": "~/.dsh/storages/schedule.json",
+  "pollMs": 5000,
+  "prefix": "【DSH 定时提醒】",
+  "maxRetries": 3,
+  "retryDelaysMs": [2000, 10000, 30000],
+  "portCacheMs": 300000,
+  "_comment": "填写 botId 和 targetId（从 DSH IM 机器人设置页复制）。可通过 --port 覆盖端口，--reset 清空状态。"
+}

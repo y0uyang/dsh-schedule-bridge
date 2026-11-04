@@ -1,0 +1,51 @@
+{
+  "name": "dsh-schedule-bridge",
+  "version": "1.0.0",
+  "description": "将 DSH 定时提醒（schedule）转发到 IM 渠道（微信、飞书等）。Bridge DSH scheduled reminders to IM channels (WeChat, Feishu, etc.).",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "schedule",
+    "bridge",
+    "wechat",
+    "feishu",
+    "lark",
+    "notification"
+  ],
+  "author": "y0uyang (https://github.com/y0uyang)",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y0uyang/dsh-schedule-bridge.git"
+  },
+  "homepage": "https://github.com/y0uyang/dsh-schedule-bridge#readme",
+  "bugs": {
+    "url": "https://github.com/y0uyang/dsh-schedule-bridge/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./lib/bridge.js",
+  "exports": {
+    ".": "./lib/bridge.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "cordis.patch.yml",
+    "config.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "install": "node bin/bridge.mjs install",
+    "start": "node lib/bridge.js",
+    "test": "node lib/bridge.js --test"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
